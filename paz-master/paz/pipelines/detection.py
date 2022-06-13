@@ -398,10 +398,12 @@ class DetectMiniXceptionFER(Processor):
         boxes2D = self.square(boxes2D)
         boxes2D = self.clip(image, boxes2D)
         cropped_images = self.crop(image, boxes2D)
-        for cropped_image, box2D in zip(cropped_images, boxes2D):
-            predictions = self.classify(cropped_image)
-            box2D.class_name = predictions['class_name']
-            box2D.score = np.amax(predictions['scores'])
+        with open('classnames.txt', mode='a') as f: # ←追加
+            for cropped_image, box2D in zip(cropped_images, boxes2D):
+                predictions = self.classify(cropped_image)
+                box2D.class_name = predictions['class_name']
+                box2D.score = np.amax(predictions['scores'])
+                f.write(box2D.class_name + '\n') # ←追加
         image = self.draw(image, boxes2D)
         return self.wrap(image, boxes2D)
 
