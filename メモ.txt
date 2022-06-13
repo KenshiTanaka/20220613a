@@ -1,0 +1,5 @@
+顔の表情認識
+
+pip install pugame mutagen gtts opencv-python tensorflowで必要なライブラリをダウンロード
+cd paz-masterフォルダのパス　
+python bot_demo.pyで実行
