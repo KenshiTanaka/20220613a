@@ -32,7 +32,7 @@ with open('classnames.txt') as f:
         recommended_texts = 'そんなにこわがらなくてもだいじょうぶですよ'
     print(recommended_texts)
 
-mp3_path = r"<paz-masterフォルダのパス>"
+mp3_path = r"/home/kenshi/paz-master (2)/paz-master"
 
 language = 'ja'
 output = gTTS(text=recommended_texts, lang=language, slow=False)
